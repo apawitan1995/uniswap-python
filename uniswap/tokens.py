@@ -4,7 +4,7 @@ from web3 import Web3
 from eth_typing.evm import ChecksumAddress
 
 
-tokens_mainnet: Dict[str, ChecksumAddress] = {
+tokens: Dict[str, ChecksumAddress] = {
     k: Web3.toChecksumAddress(v)
     for k, v in {
         "ETH": "0x0000000000000000000000000000000000000000",
@@ -44,7 +44,7 @@ def get_tokens(netname: str) -> Dict[str, ChecksumAddress]:
     Used in testing.
     """
     if netname == "mainnet":
-        return tokens_mainnet
+        return tokens
     elif netname == "rinkeby":
         return tokens_rinkeby
     elif netname == "arbitrum":
